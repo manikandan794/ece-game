@@ -1,0 +1,13 @@
+{
+  "name": "glitch-hunt-root",
+  "version": "1.0.0",
+  "private": true,
+  "description": "GLITCH HUNT - SYNEXA'26 RRASE ECE Technical Symposium Monorepo",
+  "scripts": {
+    "build": "cd frontend && npm install && npm run build",
+    "start": "cd backend && npm start",
+    "test": "cd backend && npm test",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev"
+  }
+}

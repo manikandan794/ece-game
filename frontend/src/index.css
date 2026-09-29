@@ -1,0 +1,560 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================================
+   GLITCH HUNT DESIGN SYSTEM: CENTRALIZED THEME TOKENS
+   ========================================================================== */
+
+:root, [data-theme="night"], .theme-night {
+  /* Core Backgrounds */
+  --bg-primary: #070b14;
+  --bg-secondary: #0a1128;
+  --bg-tertiary: #080d19;
+  --surface: #0d1527;
+  --surface-hover: #14203a;
+  --surface-header: #0e1a38;
+  --surface-subtle: #101c38;
+
+  /* Typography */
+  --text-primary: #ffffff;
+  --text-secondary: #e2edff;
+  --text-muted: #7e92b8;
+  --text-dim: #64748b;
+
+  /* Borders & Dividers */
+  --border: #1c2e4f;
+  --border-subtle: #14203a;
+  --border-focus: #00f0ff;
+  --border-accent: rgba(0, 240, 255, 0.35);
+
+  /* Brand Accents */
+  --cyber-cyan: #00f0ff;
+  --cyber-pink: #ff0055;
+  --cyber-green: #00ff88;
+  --cyber-amber: #ffaa00;
+  --cyber-bg: #0a1128;
+  --cyber-panel: #0e1a38;
+
+  --accent-primary: #00f0ff;
+  --accent-secondary: #ff0055;
+  --accent-success: #00ff88;
+  --accent-warning: #ffaa00;
+
+  /* Inputs & Forms */
+  --input-bg: #080d19;
+  --input-border: #334155;
+  --input-text: #ffffff;
+  --input-placeholder: #64748b;
+
+  /* Tables & Lists */
+  --table-th-bg: #0d1a33;
+  --table-tr-stripe: rgba(14, 26, 56, 0.4);
+  --table-tr-hover: rgba(0, 240, 255, 0.06);
+
+  /* Shadows & Overlays */
+  --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.6), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+  --modal-backdrop: rgba(0, 0, 0, 0.85);
+  --grid-line-color: rgba(0, 240, 255, 0.06);
+  --dot-color: rgba(0, 240, 255, 0.18);
+}
+
+[data-theme="day"], .theme-day {
+  /* Core Backgrounds */
+  --bg-primary: #f1f5f9;
+  --bg-secondary: #f8fafc;
+  --bg-tertiary: #e2e8f0;
+  --surface: #ffffff;
+  --surface-hover: #f1f5f9;
+  --surface-header: #ffffff;
+  --surface-subtle: #f8fafc;
+
+  /* Typography */
+  --text-primary: #0f172a;
+  --text-secondary: #1e293b;
+  --text-muted: #475569;
+  --text-dim: #64748b;
+
+  /* Borders & Dividers */
+  --border: #cbd5e1;
+  --border-subtle: #e2e8f0;
+  --border-focus: #0284c7;
+  --border-accent: rgba(2, 132, 199, 0.45);
+
+  /* Brand Accents (Vibrant & High-Contrast for Light Mode) */
+  --cyber-cyan: #0284c7;
+  --cyber-pink: #e11d48;
+  --cyber-green: #059669;
+  --cyber-amber: #d97706;
+  --cyber-bg: #f8fafc;
+  --cyber-panel: #ffffff;
+
+  --accent-primary: #0284c7;
+  --accent-secondary: #e11d48;
+  --accent-success: #059669;
+  --accent-warning: #d97706;
+
+  /* Inputs & Forms */
+  --input-bg: #ffffff;
+  --input-border: #cbd5e1;
+  --input-text: #0f172a;
+  --input-placeholder: #94a3b8;
+
+  /* Tables & Lists */
+  --table-th-bg: #f1f5f9;
+  --table-tr-stripe: #f8fafc;
+  --table-tr-hover: #e2e8f0;
+
+  /* Shadows & Overlays */
+  --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
+  --modal-backdrop: rgba(15, 23, 42, 0.6);
+  --grid-line-color: rgba(2, 132, 199, 0.07);
+  --dot-color: rgba(2, 132, 199, 0.14);
+}
+
+/* ==========================================================================
+   GLOBAL BASE STYLES
+   ========================================================================== */
+
+body {
+  margin: 0;
+  background-color: var(--bg-primary);
+  color: var(--text-secondary);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+[data-theme="night"] body, .theme-night body {
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(0, 240, 255, 0.08) 0%, transparent 60%),
+    radial-gradient(circle at 85% 100%, rgba(255, 0, 85, 0.05) 0%, transparent 40%);
+}
+
+[data-theme="day"] body, .theme-day body {
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(2, 132, 199, 0.05) 0%, transparent 60%),
+    radial-gradient(circle at 85% 100%, rgba(225, 29, 72, 0.03) 0%, transparent 40%);
+}
+
+h1, h2, h3, .font-display {
+  font-family: 'Rajdhani', sans-serif;
+  letter-spacing: 0.05em;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Cyber Matrix Background Grid */
+.cyber-grid {
+  background-image: 
+    linear-gradient(var(--grid-line-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line-color) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+
+.circuit-dots {
+  background-image: radial-gradient(var(--dot-color) 1.5px, transparent 1.5px);
+  background-size: 28px 28px;
+}
+
+/* ==========================================================================
+   GLITCH TEXT EFFECT (THEME-ADAPTIVE)
+   ========================================================================== */
+
+.glitch-text {
+  position: relative;
+}
+
+.theme-night .glitch-text, [data-theme="night"] .glitch-text {
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.7);
+}
+
+.theme-day .glitch-text, [data-theme="day"] .glitch-text {
+  color: #0f172a !important;
+  text-shadow: 0 0 12px rgba(2, 132, 199, 0.35);
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  clip: rect(0, 0, 0, 0);
+}
+
+.glitch-text::before {
+  left: -2px;
+  text-shadow: 2px 0 var(--accent-secondary);
+  animation: glitch-anim-1 2s infinite linear alternate-reverse;
+}
+
+.glitch-text::after {
+  left: 2px;
+  text-shadow: -2px 0 var(--accent-primary);
+  animation: glitch-anim-2 3s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim-1 {
+  0% { clip: rect(20px, 9999px, 40px, 0); }
+  20% { clip: rect(60px, 9999px, 80px, 0); }
+  40% { clip: rect(10px, 9999px, 30px, 0); }
+  60% { clip: rect(50px, 9999px, 70px, 0); }
+  80% { clip: rect(80px, 9999px, 100px, 0); }
+  100% { clip: rect(30px, 9999px, 50px, 0); }
+}
+
+@keyframes glitch-anim-2 {
+  0% { clip: rect(40px, 9999px, 60px, 0); }
+  25% { clip: rect(10px, 9999px, 25px, 0); }
+  50% { clip: rect(70px, 9999px, 90px, 0); }
+  75% { clip: rect(30px, 9999px, 45px, 0); }
+  85% { clip: rect(5px, 9999px, 20px, 0); }
+}
+
+/* ==========================================================================
+   CUSTOM SCROLLBARS
+   ========================================================================== */
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.theme-night ::-webkit-scrollbar-track, [data-theme="night"] ::-webkit-scrollbar-track {
+  background: #0e1a38;
+}
+.theme-night ::-webkit-scrollbar-thumb, [data-theme="night"] ::-webkit-scrollbar-thumb {
+  background: #1e335a;
+  border-radius: 3px;
+}
+.theme-night ::-webkit-scrollbar-thumb:hover, [data-theme="night"] ::-webkit-scrollbar-thumb:hover {
+  background: #00f0ff;
+}
+
+.theme-day ::-webkit-scrollbar-track, [data-theme="day"] ::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+.theme-day ::-webkit-scrollbar-thumb, [data-theme="day"] ::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+.theme-day ::-webkit-scrollbar-thumb:hover, [data-theme="day"] ::-webkit-scrollbar-thumb:hover {
+  background: #0284c7;
+}
+
+/* ==========================================================================
+   DAY MODE COMPREHENSIVE OVERRIDES FOR ALL INTERFACES
+   (Admin 1, Admin 2, Projector, User Mobile, Tables, Modals, Forms)
+   ========================================================================== */
+
+.theme-day .bg-\[\#0a1128\],
+.theme-day .bg-\[\#070b14\],
+.theme-day .bg-\[\#090f1d\] {
+  background-color: var(--bg-primary) !important;
+}
+
+.theme-day .bg-\[\#0e1a38\],
+.theme-day .bg-\[\#0e1a38\]\/80,
+.theme-day .bg-\[\#0e1a38\]\/90 {
+  background-color: var(--surface-header) !important;
+  border-color: #cbd5e1 !important;
+}
+
+.theme-day .bg-\[\#0d1527\],
+.theme-day .bg-\[\#0c1836\],
+.theme-day .bg-slate-900,
+.theme-day .bg-slate-900\/90 {
+  background-color: var(--surface) !important;
+  border-color: #e2e8f0 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.theme-day .bg-\[\#080d19\] {
+  background-color: var(--input-bg) !important;
+  border-color: #cbd5e1 !important;
+  color: var(--text-primary) !important;
+}
+
+.theme-day .bg-slate-800 {
+  background-color: #f1f5f9 !important;
+  border-color: #cbd5e1 !important;
+}
+
+.theme-day .bg-black\/40,
+.theme-day .bg-black\/30,
+.theme-day .bg-black\/20 {
+  background-color: rgba(241, 245, 249, 0.8) !important;
+}
+
+/* Text Colors */
+.theme-day .text-white {
+  color: var(--text-primary) !important;
+}
+
+.theme-day .text-slate-100,
+.theme-day .text-slate-200,
+.theme-day .text-slate-300 {
+  color: var(--text-secondary) !important;
+}
+
+.theme-day .text-slate-400,
+.theme-day .text-slate-500 {
+  color: var(--text-muted) !important;
+}
+
+.theme-day .text-slate-600 {
+  color: var(--text-dim) !important;
+}
+
+.theme-day .text-cyan-400,
+.theme-day .text-cyan-300,
+.theme-day .text-cyan-200 {
+  color: #0284c7 !important;
+}
+
+.theme-day .text-pink-400,
+.theme-day .text-pink-300,
+.theme-day .text-pink-200 {
+  color: #e11d48 !important;
+}
+
+.theme-day .text-amber-400,
+.theme-day .text-amber-300 {
+  color: #d97706 !important;
+}
+
+.theme-day .text-emerald-400,
+.theme-day .text-emerald-300 {
+  color: #059669 !important;
+}
+
+/* Badges & Accent Containers */
+.theme-day .bg-cyan-950,
+.theme-day .bg-cyan-950\/90,
+.theme-day .bg-cyan-950\/80,
+.theme-day .bg-cyan-950\/60 {
+  background-color: #e0f2fe !important;
+  border-color: #7dd3fc !important;
+  color: #0369a1 !important;
+}
+
+.theme-day .bg-pink-950,
+.theme-day .bg-pink-950\/90,
+.theme-day .bg-pink-950\/80,
+.theme-day .bg-pink-950\/60 {
+  background-color: #ffe4e6 !important;
+  border-color: #fda4af !important;
+  color: #be123c !important;
+}
+
+.theme-day .bg-emerald-950,
+.theme-day .bg-emerald-950\/90,
+.theme-day .bg-emerald-950\/80 {
+  background-color: #dcfce7 !important;
+  border-color: #86efac !important;
+  color: #15803d !important;
+}
+
+.theme-day .bg-amber-950,
+.theme-day .bg-amber-950\/90,
+.theme-day .bg-amber-950\/80 {
+  background-color: #fef3c7 !important;
+  border-color: #fde68a !important;
+  color: #b45309 !important;
+}
+
+.theme-day .bg-red-950,
+.theme-day .bg-red-950\/90,
+.theme-day .bg-red-950\/70,
+.theme-day .bg-red-950\/60 {
+  background-color: #fee2e2 !important;
+  border-color: #fca5a5 !important;
+  color: #b91c1c !important;
+}
+
+/* Borders */
+.theme-day .border-slate-800,
+.theme-day .border-slate-700 {
+  border-color: #cbd5e1 !important;
+}
+
+.theme-day .border-slate-600 {
+  border-color: #94a3b8 !important;
+}
+
+.theme-day .border-cyan-500\/40,
+.theme-day .border-cyan-500\/30,
+.theme-day .border-cyan-500\/20,
+.theme-day .border-cyan-400\/50,
+.theme-day .border-cyan-400\/80 {
+  border-color: rgba(2, 132, 199, 0.45) !important;
+}
+
+.theme-day .border-pink-500\/40,
+.theme-day .border-pink-500\/30,
+.theme-day .border-pink-500\/50 {
+  border-color: rgba(225, 29, 72, 0.35) !important;
+}
+
+/* Form Controls (Inputs, Selects, Textareas) */
+.theme-day input:not([type="checkbox"]):not([type="radio"]),
+.theme-day select,
+.theme-day textarea {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+
+.theme-day input::placeholder,
+.theme-day textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+.theme-day input:focus,
+.theme-day select:focus,
+.theme-day textarea:focus {
+  border-color: #0284c7 !important;
+  box-shadow: 0 0 0 2px rgba(2, 132, 199, 0.15) !important;
+}
+
+/* Modals & Backdrop Blur */
+.theme-day .fixed.inset-0.bg-black\/85,
+.theme-day .fixed.inset-0.bg-black\/80,
+.theme-day .fixed.inset-0.bg-black\/75,
+.theme-day .fixed.inset-0.bg-black\/70,
+.theme-day .fixed.inset-0.bg-black\/60 {
+  background-color: rgba(15, 23, 42, 0.5) !important;
+  backdrop-filter: blur(8px);
+}
+
+/* Tables */
+.theme-day table {
+  background-color: #ffffff !important;
+}
+
+.theme-day table th {
+  background-color: #f1f5f9 !important;
+  color: #1e293b !important;
+  border-color: #cbd5e1 !important;
+}
+
+.theme-day table td {
+  border-color: #e2e8f0 !important;
+  color: #1e293b !important;
+}
+
+.theme-day table tr:nth-child(even) td {
+  background-color: #f8fafc !important;
+}
+
+.theme-day table tr:hover td {
+  background-color: #f1f5f9 !important;
+}
+
+/* High-Contrast Projector Cards */
+.projector-card {
+  transition: all 0.25s ease;
+}
+
+.theme-night .projector-card, [data-theme="night"] .projector-card {
+  background: rgba(14, 26, 56, 0.92);
+  border: 1px solid rgba(0, 240, 255, 0.35);
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+}
+
+.theme-day .projector-card, [data-theme="day"] .projector-card {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(2, 132, 199, 0.4);
+  box-shadow: 0 12px 30px 0 rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  color: #0f172a !important;
+}
+
+/* User Mobile Option Buttons in Day Mode */
+.theme-day .mobile-option-btn.border-cyan-500\/50 {
+  background-color: #f0f9ff !important;
+  border-color: #38bdf8 !important;
+  color: #0369a1 !important;
+}
+
+.theme-day .mobile-option-btn.border-pink-500\/50 {
+  background-color: #fff1f2 !important;
+  border-color: #fb7185 !important;
+  color: #be123c !important;
+}
+
+.theme-day .mobile-option-btn.border-emerald-500\/50 {
+  background-color: #f0fdf4 !important;
+  border-color: #4ade80 !important;
+  color: #15803d !important;
+}
+
+.theme-day .mobile-option-btn.border-amber-500\/50 {
+  background-color: #fffbeb !important;
+  border-color: #fcd34d !important;
+  color: #b45309 !important;
+}
+
+/* Active Selected Mobile Options */
+.theme-day .mobile-option-btn.bg-cyan-500 {
+  background-color: #0284c7 !important;
+  color: #ffffff !important;
+}
+
+.theme-day .mobile-option-btn.bg-pink-500 {
+  background-color: #e11d48 !important;
+  color: #ffffff !important;
+}
+
+.theme-day .mobile-option-btn.bg-emerald-500 {
+  background-color: #059669 !important;
+  color: #ffffff !important;
+}
+
+.theme-day .mobile-option-btn.bg-amber-500 {
+  background-color: #d97706 !important;
+  color: #ffffff !important;
+}
+
+/* Mobile Option Buttons with active states */
+.mobile-option-btn {
+  transition: all 0.15s ease-out;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mobile-option-btn:active {
+  transform: scale(0.98);
+}
+
+/* Leaderboard Stagger Reveal */
+@keyframes rowFadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.leaderboard-row {
+  animation: rowFadeSlide 0.4s ease-out forwards;
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.4s ease-out forwards;
+}
